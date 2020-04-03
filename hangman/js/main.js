@@ -35,6 +35,7 @@ console.log(answerArray.join(' '));
 
 	var victory = function(){
 		console.log('You win!');
+		alert('You won!');
 	}
 
 
