@@ -28,13 +28,18 @@ console.log(answerArray.join(' '));
 
 
 
-	// <================== EVENT ================
+	// <=================== ENDING ==============
+	var lose = function(){
+		console.log('You lose!');
+	};
 
-	// var btn = $('#btn');
-	// var btn = document.getElementById('btn');
-	// btn.onClick = function(){
-	// 	console.log('CLICKED!!!');
-	// };
+	var victory = function(){
+		console.log('You win!');
+	}
+
+
+
+	// <================== EVENT ================
 	var compare = function(val){
 		console.log('That is ' + val);
 		for (var i = 0; i < wordComp.length; i++) {
@@ -43,9 +48,23 @@ console.log(answerArray.join(' '));
 				console.log('true');
 				answerArray[i] = val;
 				$('.word').append('<p class="secret">' + answerArray.join(' ') + '</p>');
-			} else {console.log('false')};
+			}// else {console.log('false')};
 		};
 		console.log(answerArray);
+	};
+
+	var result = function(){
+		let res = 0;
+		for (var i = 0; i < wordComp.length; i++) {
+		 	if (wordComp[i] == answerArray[i]){
+		 		console.log('=======');
+		 		res++;
+		 		console.log(res);
+		 	};
+		};
+		if (res == wordComp.length) {
+			victory();
+		}
 	};
 
 
@@ -53,7 +72,9 @@ console.log(answerArray.join(' '));
 		$('.key').click(function(){
 			console.log(this.value);
 			compare(this.value);
+			result();
 		});	
 	});
+
 
 });
