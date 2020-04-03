@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	// <================== WORDS ===============
-	var wordsArray = ['массив', 'объект', 'синтаксис', 'функция', 'оператор'];
+	var wordsArray = ['массив', 'объект', 'синтаксис', 'функция', 'оператор', 'слово', 'воробей', 'лук', 'курва', 'череп', 'носок', 'кот', 'томас', 'черепаха'];
 console.log(wordsArray.length);
 	var word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
 console.log(word);
