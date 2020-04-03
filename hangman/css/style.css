@@ -99,6 +99,13 @@ body{
 		padding: 20px;
 		height: 500px;
 	}
+	
+	.key{
+		font-size: 24px;
+		font-weight: 600;
+		width: 100px;
+		height: 100px;
+	}
 }
 
 @media only screen and (min-device-width: 411px) and (max-device-width: 760px){
