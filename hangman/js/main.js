@@ -102,7 +102,7 @@ console.log(answerArray.join(' '));
 
 	ctx.beginPath();
 	ctx.strokeStyle = '#fff';
-	ctx.lineWidth = 5;
+	ctx.lineWidth = 15;
 	ctx.lineCap = 'round';
 
 	ctx.moveTo(x1, y1 * 14);
@@ -117,6 +117,10 @@ console.log(answerArray.join(' '));
 
 	var animate = function(draw){
 		let bodyWidth = 100;
+		let lineWd = 10;
+		ctx.lineWidth = lineWd;
+		ctx.lineCap = 'butt';
+		ctx.fillStyle = '#fff';
 		switch(draw){
 			// ========= ROPE ==========
 			case 7:
@@ -132,10 +136,37 @@ console.log(answerArray.join(' '));
 				ctx.arc(x1 * 7, y1 * 5, x1, 0, Math.PI * 2);
 				ctx.stroke();
 				ctx.closePath();
+
+				ctx.beginPath();
+				ctx.arc(x1 * 7 - (x1 / 3), y1 * 5 - (y1 / 4), (x1 / 4), 0, Math.PI * 2);
+				ctx.stroke();
+				ctx.closePath();
+
+				ctx.beginPath();
+				ctx.arc(x1 * 7 + (x1 / 3), y1 * 5 - (y1 / 4), (x1 / 4), 0, Math.PI * 2);
+				ctx.stroke();
+				ctx.closePath();
+
+				ctx.beginPath();
+				ctx.arc(x1 * 7 + (x1 / 3), y1 * 5 - (y1 / 4), (x1 / 15), 0, Math.PI * 2);
+				ctx.fill();
+				ctx.closePath();				
+
+				ctx.beginPath();
+				ctx.arc(x1 * 7 - (x1 / 3), y1 * 5 - (y1 / 4), (x1 / 15), 0, Math.PI * 2);
+				ctx.fill();
+				ctx.closePath();
+
+				ctx.beginPath();
+				ctx.moveTo(x1 * 7 - (x1 / 2), y1 * 5 + (y1 / 2));
+				ctx.quadraticCurveTo(x1 * 7 - (x1 / 2), y1 * 5, x1 * 7 + (x1 / 2), y1 * 5 + (y1 / 2));
+				ctx.stroke();
+				ctx.closePath();
 			break;
 			// ========= NECK ==========	
 			case 5:
 				ctx.beginPath();
+				ctx.lineWidth = bodyWidth / 4;
 				ctx.moveTo(x1 * 7, y1 * 6);
 				ctx.lineTo(x1 * 7, (y1 * 6) + (y1 / 2));
 				ctx.stroke();
@@ -153,7 +184,7 @@ console.log(answerArray.join(' '));
 			// ========= L-HAND ==========	
 			case 3:
 				ctx.beginPath();
-				ctx.lineWidth = 5;
+				ctx.lineWidth = lineWd;
 				ctx.moveTo((x1 * 7) - (bodyWidth / 2), (y1 * 6) + (y1 / 2));
 				ctx.lineTo((x1 * 7) - bodyWidth, y1 * 9);
 				ctx.stroke();
@@ -170,7 +201,7 @@ console.log(answerArray.join(' '));
 			// ========= L-LEG ==========	
 			case 1:
 				ctx.beginPath();
-				ctx.moveTo((x1 * 7) - (bodyWidth / 2), y1 * 9);
+				ctx.moveTo((x1 * 7) - (bodyWidth / 2) + 5, y1 * 9);
 				ctx.lineTo((x1 * 7) - (bodyWidth / 1.5), y1 * 11);
 				ctx.stroke();
 				ctx.closePath();
@@ -178,7 +209,7 @@ console.log(answerArray.join(' '));
 			// ========= R-LEG ==========	
 			case 0:
 				ctx.beginPath();
-				ctx.moveTo((x1 * 7) + (bodyWidth / 2), y1 * 9);
+				ctx.moveTo((x1 * 7) + (bodyWidth / 2) - 5, y1 * 9);
 				ctx.lineTo((x1 * 7) + (bodyWidth / 1.5), y1 * 11);
 				ctx.stroke();
 				ctx.closePath();
@@ -187,6 +218,20 @@ console.log(answerArray.join(' '));
 		};
 	};
 	
+	// <=================== ON START =================
+	var startRemove = function(){
+		$('.start').remove();
+	};
+
+
+	$(function(){
+		$('.start-btn').click(function(){
+			$('.start').animate({left: '100%'});
+		});
+	});
+
+
+
 
 
 
@@ -196,6 +241,7 @@ console.log(answerArray.join(' '));
 			$(this).attr('disabled','true');
 			$(this).addClass('clicked');
 			$(this).removeClass('able');
+			startRemove();
 			console.log(this.value);
 			compare(this.value);
 			result();
