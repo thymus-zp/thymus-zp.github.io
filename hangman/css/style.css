@@ -44,7 +44,7 @@ body{
 	width: 20vh;
 	height: 20vh;
 	background-color: #c45200;
-	border: 15px solid #fff;
+	border: 5px solid #fff;
 	border-radius: 20vh;
 	background-image: url(../images/right.png);
 	background-repeat: no-repeat;
@@ -171,12 +171,4 @@ body{
 		height: 70px;
 		line-height: 32px;
 	}
-}
-
-@media only screen and (min-device-width: 411px) and (max-device-width: 760px){
-
-}
-
-@media only screen and (min-device-width: 761px) and (max-device-width: 1001px){
-
 }
