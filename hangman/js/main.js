@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	// <================== WORDS ===============
-	var wordsArray = ['жопаВлада'];
+	var wordsArray = ['прокрастинация', 'кисть', 'кукуруза', 'корт', 'кривая', 'объект', 'лампа', 'каска', 'молот', 'цветок', 'счет', 'портрет', 'нефть', 'степень', 'пинцет', 'скальпель', 'структура', 'полюс', 'звезда', 'собака', 'кот', 'код'];
 console.log(wordsArray.length);
 	var word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
 console.log(word);
